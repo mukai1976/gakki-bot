@@ -3,6 +3,8 @@
  
 import time
 import re
+import os
+
 from slackclient import SlackClient
 
 ACCESS_TOKEN = os.environ["ACCESS_TOKEN"]
