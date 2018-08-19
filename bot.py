@@ -4,10 +4,12 @@
 import time
 import re
 from slackclient import SlackClient
- 
+
+ACCESS_TOKEN = os.environ["ACCESS_TOKEN"]
+
 class SlackBotMain:
  
-    token = "xoxb-346303851888-410759035234-0TMSInWeKNGaJ1d5o3eJCbEg" # メモしておいたトークンを設定
+    token = ACCESS_TOKEN # メモしておいたトークンを設定
     sc = SlackClient(token)
  
     def __init__(self):
