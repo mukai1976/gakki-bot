@@ -1,3 +1,2 @@
-# slackbot
-"# gakki-bot" 
+# gakki-bot
 "# gakki-bot" 
