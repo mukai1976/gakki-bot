@@ -1,6 +1,6 @@
 #!/usr/local/pyenv/shims/python
 # coding:utf-8
- 
+
 import time
 import re
 import os
@@ -10,24 +10,24 @@ from slackclient import SlackClient
 ACCESS_TOKEN = os.environ["ACCESS_TOKEN"]
 
 class SlackBotMain:
- 
+
     token = ACCESS_TOKEN # メモしておいたトークンを設定
     sc = SlackClient(token)
- 
+
     def __init__(self):
         if SlackBotMain.sc.rtm_connect():
             while True:
                 data = SlackBotMain.sc.rtm_read()
- 
+
                 if len(data) > 0:
                     for item in data:
-                        SlackBotMain.sc.rtm_send_message("fyi", self.create_message(item))
- 
+                        SlackBotMain.sc.rtm_send_message("oth_botテスト用", self.create_message(item))
+
                 time.sleep(1)
         else:
             print ('Connection Failed, invalid token?')
- 
- 
+
+
     def create_message(self, data):
         if "type" in data.keys():
             if data["type"] == "message":
@@ -37,6 +37,6 @@ class SlackBotMain:
                     if re.search(u"(.*疲れた.*|.*つかれた.*)", data["text"]) is not None:
                         return "<@" + data["user"] + "> " + u"大丈夫？無理しないでね。"
                     if re.search(u"(.*欠席.*)", data["text"]) is not None:
-                        return "<@" + data["user"] + "> " + u"そうなんだー、会えるの楽しみにしていたのに残念:cry:" 
- 
+                        return "<@" + data["user"] + "> " + u"そうなんだー、会えるの楽しみにしていたのに残念:cry:"
+
 sbm = SlackBotMain()
