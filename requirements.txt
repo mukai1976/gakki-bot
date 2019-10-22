@@ -3,7 +3,7 @@ chardet==3.0.4
 freeze==1.0.10
 idna==2.5
 Janome==0.2.8
-requests==2.18.1
+requests==2.20.0
 six==1.10.0
 slackbot==0.5.3
 slackclient==1.2.1
